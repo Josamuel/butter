@@ -50,7 +50,7 @@ class RewardsPage extends React.Component {
                       <tbody>
                       {this.props.rewards.map(function(val, i){
                         console.log("?", val)
-                        return (<tr className=""> 
+                        return (<tr className="">
                                 <th scope="row"> {i +1} </th>
                                   <td>{val.program}</td>
                                   <td>{val.category}</td>
@@ -62,19 +62,19 @@ class RewardsPage extends React.Component {
                       </table>
                     </div>
                   </div>
-                 { 
-                 //  <div className="col-md-6 col-md-offset-1">
-                 //   <div className="piechart">
-                 //     <svg width = "100%" height = "100%">
-                 //       <Pie x={window.innerWidth/2}
-                 //            y={window.innerHeight/2}
-                 //            innerRadius={( Math.min( window.innerWidth, window.innerHeight ) * .9 ) / 2*.35}
-                 //            outerRadius={( Math.min( window.innerWidth, window.innerHeight ) * .9 ) / 2}
-                 //            cornerRadius={7}
-                 //            padAngle={.02} />
-                 //     </svg>
-                 //   </div>
-                 // </div>
+                 {
+                  <div className="col-md-6 col-md-offset-1">
+                   <div className="piechart">
+                     <svg width = "100%" height = "100%">
+                       <Pie x={window.innerWidth/2}
+                            y={window.innerHeight/2}
+                            innerRadius={( Math.min( window.innerWidth, window.innerHeight ) * .9 ) / 2*.35}
+                            outerRadius={( Math.min( window.innerWidth, window.innerHeight ) * .9 ) / 2}
+                            cornerRadius={7}
+                            padAngle={.02} />
+                     </svg>
+                   </div>
+                 </div>
                   }
                 </div>
               </div>
@@ -100,6 +100,3 @@ function matchDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(RewardsPage)
-
-
-
