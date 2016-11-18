@@ -24,7 +24,7 @@ class Pie extends React.Component {
   }
 
   render () {
-    let { x, y, data} = this.props
+    let { x, y, data } = this.props
     let pie = d3.pie()
 
     return (
@@ -35,10 +35,11 @@ class Pie extends React.Component {
   }
 
   renderSlice (value, i) {
-    let { innerRadius, outerRadius, cornerRadius, padAngle, startAngle, endAngle, data} = this.props
-    let total = data.reduce((acc, curr) => curr[1] ? acc += curr[1] : null)
-    startAngle = (value.data[1] * Math.PI * 2) / total
-    endAngle = (value.data[1] * 2 * Math.PI * 2) / total
+    let { data, innerRadius, outerRadius, cornerRadius, padAngle, startAngle, endAngle } = this.props
+    let total = data.reduce((acc, curr) => curr[1] ? acc += curr[1] : null, 0)
+    console.log('total', total)
+    startAngle = (value.data[1]*Math.PI*2)/total
+    endAngle = (value.data[1]*Math.PI*4)/total
 
     if (value.data[1]) {
       return (
