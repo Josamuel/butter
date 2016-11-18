@@ -12,29 +12,16 @@ class Pie extends React.Component {
     super(props)
     this.colorScale = d3.schemeCategory10
     this.renderSlice = this.renderSlice.bind(this)
-    // this.state = ({
-    //   total: 0
-    // })
-    // this.data = [5, 2, 7, 1, 1, 3, 4, 9]
   }
 
   componentDidMount(){
     this.props.getPieData()
-    // this.setState({total: this.getTotalRewards()})
   }
 
 
   translate (x, y) {
     return `translate(${x}, ${y})`
   }
-
-  // getTotalRewards(){
-  //   return this.props.data.reduce(function(acc, curr){
-  //     if (curr[1]){
-  //       acc += curr
-  //     }
-  //   }, 0)
-  // }
 
   render () {
     let { x, y, data } = this.props
@@ -47,8 +34,8 @@ class Pie extends React.Component {
   }
 
   renderSlice (value, i) {
-    let { innerRadius, outerRadius, cornerRadius, padAngle, startAngle, endAngle } = this.props
-    let total = 1500
+    let { data, innerRadius, outerRadius, cornerRadius, padAngle, startAngle, endAngle } = this.props
+    let total = data.reduce((acc, curr) => curr[1] ? acc += curr[1] : null)
     startAngle = (value.data[1]*Math.PI*2)/total
     endAngle = (value.data[1]*Math.PI*4)/total
 
